@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="/src/app/page/quotes/randomquote-list/randomquote-list.component.css"> -->
+<body>
+    <div class="wrapper" style="min-width: 605px; min-height: 300px;" >
+        <header>ToDo of the Day</header>
+        @if(todo.todo){
+        <div class="content">
+          <div class="quote-area">
+            <i class="fa fa-quote-left"></i>
+            <p class="quote" id="quote">{{todo.todo}}</p>
+            <i class="fa fa-quote-right"></i>
+          </div>
+          <div class="author">
+            <span class="name" id="orrator">Work Completed:{{todo.completed? 'Completed': 'Not Done Yet'}}</span>
+          </div>
+        </div>
+        }@else {
+          <div class="content">
+            <div class="quote-area">
+              <i class="fa fa-quote-left"></i>
+              <p class="quote" id="quote">Loading...</p>
+              <i class="fa fa-quote-right"></i>
+            </div>
+            <div class="author"> </div>
+          </div>
+        }
+        <div class="buttons">
+          <div class="features">
+            <ul>
+              <li class="speech"><i class="fa fa-volume-up"></i></li>
+              <li class="copy"><i class="fa fa-copy"></i></li>
+              <li class="twitter"><i class="fa fa-instagram"></i></li>
+            </ul>
+            <!-- <button id="btn" (click)="GetRandomTodo()">New ToDo</button> -->
+          </div>
+        </div>
+      </div>
+</body>

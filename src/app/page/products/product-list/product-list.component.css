@@ -1,0 +1,14 @@
+.cart-body{
+    font-size: 2rem;
+    position: relative;
+}
+
+.cart-num{
+    position: absolute;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    width: 2rem;
+    text-align: center;
+}
+

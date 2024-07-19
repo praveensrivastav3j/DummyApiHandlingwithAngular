@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+    <div class="wrapper">
+        <header>Quote of the Day</header>
+        <div class="content">
+          <div class="quote-area">
+            <i class="fa fa-quote-left"></i>
+            <p class="quote" id="quote">{{randomQuote.quote}}</p>
+            <i class="fa fa-quote-right"></i>
+          </div>
+          <div class="author">
+            <span>__</span>
+            <span class="name" id="orrator">{{randomQuote.author}}</span>
+          </div>
+        </div>
+        <div class="buttons">
+          <div class="features">
+            <ul>
+              <li class="speech"><i class="fa fa-volume-up"></i></li>
+              <li class="copy"><i class="fa fa-copy"></i></li>
+              <li class="twitter"><i class="fa fa-instagram"></i></li>
+            </ul>
+            <!-- <button id="btn" (click)="GetRandomQuote()">New Quote</button> -->
+          </div>
+        </div>
+      </div>
+</body>
+

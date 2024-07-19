@@ -1,0 +1,56 @@
+<div class="m-5">
+    <h1>Recipe List </h1>
+    <div>
+      <div class="row">
+        <div class="col my-3 d-flex justify-content-between  m-3">
+          <input type="text" class="form-control me-3" placeholder="Search Recipe"  [formControl]="recipeSearch" >  
+          <select class="form-select" name="" id="" (change)="GetRecipeByMeal()" [formControl]="mealsType">
+              <option value="">Meal Type</option>
+              @for(meals of allMeal; track meals){
+              <option [value]="meals" >{{meals}}</option>
+            }
+            </select>
+      </div>
+      </div>
+
+      
+    </div>
+    <div class="d-flex overflow-x-auto">
+        <div>
+          @if(SelectedTag){
+
+            <button class="btn btn-outline-danger me-2" (click)="ClearTag()">Clear</button>
+          }
+        </div>
+          @for(tag of allRecipe; track tag){
+            <!-- [ngClass]="selectedCat == cat ? 'btn-primary':' btn-outline-secondary'" -->
+              <button class="btn me-2 text-nowrap" [ngClass]="SelectedTag== tag ? 'btn-primary':'btn-outline-secondary'" (click)="GetRecipeTag(tag)">{{tag}}</button>
+              }            
+      </div>
+        <div>
+          <!-- @for(meal of allMeal; track meal){
+              <button class="btn me-2 text-nowrap">{{meal}}</button>
+              }             -->
+      </div>
+
+    <div class="row my-3 ">
+        @for(recipe of recipeData; track recipe.id ){
+            <div class="col-3 p-3">
+                <div class="card px-3" style=" height: 35rem; ">
+                    <div class="card-body">
+                        <div class="text-center card-image-top">
+                            <img [src]='recipe.image'  width="150px">
+                        </div>
+                    <div class="card-body">
+                        <p class="card-text">Name: {{recipe.name}}</p>
+                        <p class="card-text">Cuisine: {{recipe.cuisine}}</p>
+                        <p class="card-text">Meal type: {{recipe.mealType}}</p>
+                        <p class="card-text">Ingredients: {{recipe.ingredients}}</p>
+                     </div>
+                  </div>
+                </div>
+            </div>
+          
+        }
+    </div>
+</div>

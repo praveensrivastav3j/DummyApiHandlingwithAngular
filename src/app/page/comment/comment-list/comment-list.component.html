@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="d-flex justify-content-between my-2">
+        <h1>Comments List </h1>
+        <button class="btn btn-outline-primary" [routerLink]="['/addComment-list']">Add Comment</button>
+    </div>
+    <div class="row my-3 ">
+        @for(comment of commentData; track commentData.id  ){
+            <div class="col-3  py-2">
+                <div class="card" style="width: 20rem; height: 10rem;">
+                    <div class="card-body ">
+                        <i class="bi bi-pencil-square float-end py-2 text-dark" (click)="UpdateComment(comment.id)"></i>
+                        <i class="bi bi-archive-fill float-end py-2 text-danger mx-1" (click)="DeleteComment(comment.id)"></i>
+                        <p class="card-text">Username: {{comment.user.username}}</p>
+                        <p class="card-text">Comment: {{comment.body}}</p>
+                     </div>
+                  </div>
+            </div>
+        
+        }
+    </div>
+</div>
+
+

@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="d-flex justify-content-between my-2">
+        <h1>Quotes List </h1>
+        <button class="btn btn-outline-primary" [routerLink]="['/randomquote-list']">Get Random Quote</button>
+    </div>
+    <div class="row my-3 ">
+        @for(quote of quoteData; track quoteData.id  ){
+            <div class="col-3 py-3">
+                <div class="card" style="width: 20rem; height: 10rem;">
+                    <div class="card-body">
+                        <p class="card-text">"{{quote.quote}}"</p>
+                        <p class="card-text"> - {{quote.author}}</p>
+                        <!-- <p class="card-text" (click)="GetSingleQuote()"> - Click me</p> -->
+                     </div>
+                  </div>
+            </div>
+        }
+    </div>
+</div>
+
+

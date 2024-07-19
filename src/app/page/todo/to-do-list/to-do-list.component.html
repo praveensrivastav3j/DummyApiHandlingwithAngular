@@ -1,0 +1,24 @@
+<div class=" container my-2">
+    <div class="d-flex justify-content-between my-2">
+        <h1>ToDo List </h1>
+        <button class="btn btn-outline-primary" [routerLink]="['/randomtodo-list']">Random ToDOs</button>
+        <button class="btn btn-outline-primary" [routerLink]="['/addTodo-list']">Add ToDOs</button>
+    </div>
+    <div class="row">
+        @for(toDo of toDoData; track toDoData.id  ){
+            <div class="col-3  py-2">
+                <div class="card" style="width: 20rem;height: 12rem;">
+                    <div class="card-body">
+                        <i class="bi bi-pencil-square float-end py-2 text-dark" (click)="UpdateTodo(toDo.id)"></i>
+                        <i class="bi bi-archive-fill float-end py-2 text-danger mx-1" (click)="DeleteTodo(toDo.id)"></i>
+                        <p class="card-text">Sr. No.: {{toDo.id}}</p>
+                        <p class="card-text">ToDo: {{toDo.todo}}</p>
+                        <p class="card-text">Is Completed:{{toDo.completed}}</p>
+                     </div>
+                  </div>
+            </div>
+        
+        }
+    </div>
+</div>
+

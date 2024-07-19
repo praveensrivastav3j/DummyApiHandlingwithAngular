@@ -1,0 +1,86 @@
+<div>
+    <div class="d-flex justify-content-between m-2">
+        <h1 class="text-center ">Product List</h1>
+        <button class="btn btn-primary" [routerLink]="['/product-add']">Add</button>
+    </div>
+    <div class="my-3 d-flex justify-content-between ">
+      <div class="w-50">
+        <input type="text" class="form-control " [formControl]="productsearch" placeholder="Search Product">
+      </div>
+      <div class="me-5">
+        <i class="bi bi-cart cart-body " [routerLink]="['/add-cart']"></i>
+        @if(cartProducts.length>0){
+          <span class="cart-num">{{cartProducts.length}}</span>
+        }
+    </div>
+    </div>
+    <div>
+        <!-- <div class="d-flex overflow-x-auto">
+          <div>
+            @if(selectedCat){
+
+              <button class="btn btn-outline-danger me-2" (click)="ClearCat()">Clear</button>
+            }
+          </div>
+            @for(cat of categorylist; track cat){
+                <button class="btn me-2 text-nowrap"
+                    [ngClass]="selectedCat == cat ? 'btn-primary':' btn-outline-secondary'" (click)="GetProductOfCategory(cat)">{{cat}}</button>
+                }
+                
+                
+               
+        </div> -->
+
+        <div class="row my-3 ">
+          @for(product of productData; track productData.id){
+              <div class="col-3 p-3">
+                  <div class="card px-3" style=" height: 30rem; ">
+                      <div class="card-body">
+                        <i class="bi bi-pencil-square float-end py-2 text-dark " (click)="UpdateProductData(product.id)"></i>
+                        <i class="bi bi-archive-fill float-end py-2 text-danger mx-1" (click)="DeleteProductData(product.id)"></i>
+                          <div class="text-center card-image-top">
+                              <img [src]='product.thumbnail'height="250px"  width="250px" class=" rounded-2">
+                          </div>
+                      <div class="card-body"><br>
+                          <p class="card-text"><strong>{{product.title}}</strong></p>
+                          <p class="card-text">Rating: {{product.rating}}<i class="bi bi-star"></i></p>
+                          <p class="card-text ptage">Price: {{product.price}}<i class="bi bi-currency-rupee"></i></p>
+                          <button class="btn btn-secondary w-100" (click)="AddCart(product)">Add to Cart</button>
+                       </div>
+                    </div>
+                  </div>
+              </div>
+            
+          }
+      </div>        
+    </div>
+
+
+
+        <!-- <table class="table my-2">
+            <thead>
+                <tr>
+                <th scope="col">id</th>
+                <th scope="col">Image</th>
+                <th scope="col">Title</th>
+                <th scope="col">Price</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                @for(product of productData; track productData.id){
+              <tr>
+                <th scope="row">{{product.id}}</th>
+                <td><img [src]="product.thumbnail" alt="" height="50px" width="50px"></td>
+                <td>{{product.title}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.rating}}</td>
+                <td ><button class="btn btn-outline-success me-2" (click)="UpdateProductData(product.id)">Update</button>
+                  <button class="btn btn-outline-danger" (click)="DeleteProductData(product.id)">Delete</button></td>
+              </tr>
+            }
+              
+            </tbody>
+          </table> -->
+</div>
